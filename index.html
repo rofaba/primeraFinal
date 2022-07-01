@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TIENDA BACKEND</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}    
+
+</style>
+<div class="container-fluid">
+    <div class="panelSuperior">
+        <div> 
+            <h2 class="titulo"> BIENVENIDO TIENDA BACKEND </h2>
+        </div>
+        
+        <form class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked"> ¿Eres administrador del sitio? </label>
+        </form>
+    </div>
+
+    <br>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+        </li>
+    </ul>
+
+    <!-- formulario de ingreso -->
+
+   
+        <form action="/productos" method="post" >
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Nombre producto" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
+                <input type="text" class="form-control" placeholder="URL Imagen producto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+             
+              </div>
+              
+              <!-- <label for="basic-url" class="form-label">Your vanity URL</label> -->
+              <div class="input-group">
+                <span class="input-group-text"> CODIGO / PRECIO / STOCK DISPONIBLE </span>
+                <input type="number" aria-label="Last name" class="form-control" placeholder="Código">
+                <input type="number" aria-label="First name" class="form-control" placeholder="Precio $">
+                <input type="number" aria-label="Last name" class="form-control" placeholder="Stock disponible" >
+              </div>
+              
+              <div class="input-group">
+                <span class="input-group-text"> DESCRIPCION</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="Descripción del producto" ></textarea>
+              </div>
+        </form>
+       
+<br>
+<br>
+
+<a href="./public/productos.html">Ir a Productos</a>
+        
+ </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+
+
+            
+</body>
+
+</html>
+
+
+
+
