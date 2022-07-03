@@ -124,9 +124,11 @@ const express = require('express');
 const app = express();
 
 const ejs = require('ejs');
+const {body, validationResult} = require('express-validator')
 
 const router = require('./src/routes')
 const port = process.env.PORT || 8080;
+
 const fs = require ('fs');
 const { collapseTextChangeRangesAcrossMultipleVersions, InferencePriority } = require('typescript');
 const { Console } = require('console');
@@ -162,7 +164,18 @@ app.get('/productos', (req, res) => {
     });    
 }); 
 
-app.post('/productos', (req, res) => {
+app.post('/productos', [
+    body('admin', 'Ruta autorizada solo para administradores')
+        .exists()
+], (req, res) => {
+
+    //validacion admin
+    const error = validationResult(req);
+    if (!error.isEmpty()){
+        console.log({error: -1, descripcion: "ruta /productos en método POST, no autorizada"});
+            
+    } else{
+
         const productos = archivo.getAll();
         const productosarray = productos;
 
@@ -179,12 +192,14 @@ app.post('/productos', (req, res) => {
             
             const nuevoarchivo = JSON.stringify(productosarray, null, 2)
             fs.writeFileSync('productos.txt', nuevoarchivo);
-            console.log('producto guardado')
+            console.log('producto guardado');
             res.redirect('/')
+            
         }
         catch (error) {
             console.log('Ha ocurrido un error en el proceso', error)
         }
+    }
 })
 
 

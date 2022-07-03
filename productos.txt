@@ -30,6 +30,52 @@
     "descripcion": "funko pop de pelicula"
   },
   {
-    "id": 4
-  }
+    "title": "Funko Pop Destiny ",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "342",
+    "price": "24990",
+    "stock": "1",
+    "descripcion": "Seeper Bot - Exclusivo - Figura Nueva y Sellada - 100% Original",
+    "id": 5
+  },
+  {
+    "title": "Funko Pop Destiny -",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "342",
+    "price": "24990",
+    "stock": "1",
+    "descripcion": " Sweeper Bot #342 Exclusivo",
+    "admin": "on",
+    "id": 6
+  },
+  {
+    "title": "Funko Pop Destiny -",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "342",
+    "price": "24990",
+    "stock": "1",
+    "descripcion": " Sweeper Bot #342 Exclusivo",
+    "admin": "on",
+    "id": 7
+  },
+  {
+    "title": "Funko Pop Destiny -  PROBANDO VALIDACIÓN",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "342",
+    "price": "24990",
+    "stock": "1",
+    "descripcion": " Sweeper Bot #342 Exclusivo",
+    "admin": "on",
+    "id": 8
+  },
+  {
+    "title": "destiny",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "554677",
+    "price": "555",
+    "stock": "100",
+    "descripcion": "hola gato destiny",
+    "admin": "on",
+    "id": 9
+  },
 ]
