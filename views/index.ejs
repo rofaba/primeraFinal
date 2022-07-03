@@ -1,14 +1,5 @@
 
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TIENDA BACKEND</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
+<%- include("template/cabecera", {titulo: 'Página inicio'}); -%>
 
 <body>
 <style>
@@ -16,13 +7,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box
-}    
+}
 
 </style>
 <div class="container-fluid">
     <div class="panelSuperior">
         <div> 
-            <h2 class="titulo"> BIENVENIDO TIENDA BACKEND </h2>
+            <h2 class="titulo"> BIENVENIDO TIENDA BACKEND  EJS  </h2>
         </div>
         
         <form class="form-check form-switch">
@@ -48,9 +39,8 @@
     </ul>
 
     <!-- formulario de ingreso -->
-
    
-        <form action="/productos" method="post" >
+        <form action="/productos" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Nombre producto" aria-describedby="basic-addon1">
@@ -74,20 +64,26 @@
                 <span class="input-group-text"> DESCRIPCION</span>
                 <textarea class="form-control" aria-label="With textarea" placeholder="Descripción del producto" ></textarea>
               </div>
+              
+              <input type="submit"  value="Guardar">
+              
         </form>
        
 <br>
 <br>
+<a href='productos.html'> Ir a productos</a>
 
-<a href="./public/productos.html">Ir a Productos</a>
         
  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+
+ <button class="btn btn-primary" id="verTodo"> Ver todos los productos </button>
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"></script>
 
-
-            
 </body>
 
 </html>
