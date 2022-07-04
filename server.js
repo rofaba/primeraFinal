@@ -115,7 +115,7 @@ RODRIGO FAURE COMISION 30995
 }
 
 //se utilizará el archivo llamado productos.txt
-var archivo = new Contenedor('productos.txt') 
+var archivo = new Contenedor('productos.txt'); 
 var carrito = new Contenedor('carrito.txt')
 
 //SERVER PRINCIPAL
@@ -141,7 +141,7 @@ app.set('port', process.env.PORT || 8080)
 
 //MIDDLEWARES
 
-// app.use(express.json())
+app.use(express.json())
 app.use(express.urlencoded({ extend: true }))
 app.use(express.static(__dirname + '/public'));
 
@@ -164,17 +164,19 @@ app.get('/productos', (req, res) => {
     });    
 }); 
 
-app.post('/productos', [
-    body('admin', 'Ruta autorizada solo para administradores')
-        .exists()
-], (req, res) => {
+app.post('/productos', 
+
+//[     body('admin', 'Ruta autorizada solo para administradores')
+//         .exists()
+// ], 
+(req, res) => {
 
     //validacion admin
-    const error = validationResult(req);
-    if (!error.isEmpty()){
-        console.log({error: -1, descripcion: "ruta /productos en método POST, no autorizada"});
+    // const error = validationResult(req);
+    // if (!error.isEmpty()){
+    //     console.log({error: -1, descripcion: "ruta /productos en método POST, no autorizada"});
             
-    } else{
+    // } else{
 
         const productos = archivo.getAll();
         const productosarray = productos;
@@ -199,10 +201,66 @@ app.post('/productos', [
         catch (error) {
             console.log('Ha ocurrido un error en el proceso', error)
         }
+    })
+
+//
+
+app.put('/productos/:id', (req, res) => {
+
+    // borrar anterior
+    const existentes = JSON.parse(fs.readFileSync('productos.txt', 'utf-8'));
+    const productosarray = existentes;
+    const idparaborrar = Number(req.params.id);
+          try {
+            let elementoParaBorrar = productosarray.findIndex((element) => element.id == idparaborrar);
+            
+                if (elementoParaBorrar != -1) {
+            productosarray.splice((productosarray.findIndex((producto) => producto.id == idparaborrar)), 1);
+            fs.writeFileSync('productos.txt', JSON.stringify(productosarray, null, 2));
+               } else console.log('No se encuentra el producto con el id solicitado')
+    }
+    catch (error) {
+        console.log('Ha ocurrido un error en el proceso', error)
+    }
+// grabar producto editado
+    
+    try {
+        const nuevoProducto = req.body;
+        nuevoProducto.id = req.params.id;
+         
+        productosarray.push(nuevoProducto)
+        
+        const nuevoarchivo = JSON.stringify(productosarray, null, 2)
+        fs.writeFileSync('productos.txt', nuevoarchivo);
+        console.log('producto guardado');
+        res.redirect('/')
+        
+    }
+    catch (error) {
+        console.log('Ha ocurrido un error en el proceso', error)
     }
 })
 
 
+app.delete('/productos/:id', (req, res) => {
+         
+        const existentes = JSON.parse(fs.readFileSync('productos.txt', 'utf-8'));
+        const productosarray = existentes;
+        const idparaborrar = Number(req.params.id);
+              try {
+                let elementoParaBorrar = productosarray.findIndex((element) => element.id == idparaborrar);
+                
+                    if (elementoParaBorrar != -1) {
+                productosarray.splice((productosarray.findIndex((producto) => producto.id == idparaborrar)), 1);
+                fs.writeFileSync('productos.txt', JSON.stringify(productosarray, null, 2));
+                console.log('El producto ha sido correctamente eliminado')
+
+                    } else console.log('No se encuentra el producto con el id solicitado')
+        }
+        catch (error) {
+            console.log('Ha ocurrido un error en el proceso', error)
+        }
+    })
 
 // app.use('/productos', router);
 // app.use('/carrito', router);

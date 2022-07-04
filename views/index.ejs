@@ -4,18 +4,24 @@
         <style>
             * {
                 margin: 0;
-                padding: 0;
-                box-sizing: border-box
+                padding: 6px 3px;
+                box-sizing: border-box;
+               
             }
+            .panelSuperior {
+                display: flex;
+                justify-content: center;
+            }
+
         </style>
         <div class="container-fluid">
             <div class="panelSuperior">
                 <div>
-                    <h2 class="titulo"> BIENVENIDO TIENDA BACKEND EJS </h2>
+                    <h2 class="titulo"> BIENVENIDO TIENDA BACKEND </h2>
+                    <a class="btn btn-dark" href="http://localhost:8080/productos"> Ir a Productos </a>
                 </div>
 
             </div>
-
 
             <!-- <ul class="nav justify-content-center">
                 <li class="nav-item">
@@ -43,7 +49,7 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
+                    <span class="input-group-text"  id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
                     <input type="url" name="thumbnail" class="form-control" placeholder="URL Imagen producto"
                         aria-label="Recipient's username" aria-describedby="basic-addon2" required>
 
@@ -56,13 +62,13 @@
                         required>
                     <input type="number" name="price" aria-label=" First name" class="form-control"
                         placeholder="Precio $" required>
-                    <input type="number" name="stock" aria-label=" Last name" class="form-control"
+                    <input type="number"  name="stock" aria-label=" Last name" class="form-control"
                         placeholder="Stock disponible" required>
                 </div>
 
                 <div class="input-group">
                     <span class="input-group-text"> DESCRIPCION</span>
-                    <textarea class="form-control" name="descripcion" aria-label="With textarea"
+                    <textarea  class="form-control" name="descripcion" aria-label="With textarea"
                         placeholder="Descripción del producto" required></textarea>
                 </div>
                 <br>
@@ -70,24 +76,26 @@
                     <input class="form-check-input" name="admin" type="checkbox" role="switch"
                         id="flexSwitchCheckChecked">
                     <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
-                        administradores. Si eres administrador activa el checkbox antes de guardar.</b>
+                            administradores. Si eres administrador activa el checkbox antes de guardar.</b>
                     </label>
                     <input class="btn btn-primary" type="submit" value="Guardar">
                 </div>
                 <hr>
-                </form>
-                        <!-- EDITAR PRODUCTO EXISTENTE -->
+            </form>
+            <!-- EDITAR PRODUCTO EXISTENTE -->
             <h2>Para editar un PRODUCTO EXISTENTE utilice el siguiente fomulario</h2>
 
-            <form action="/productos" method="put">
+            <form id="formularioforput">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
+                    <span class="input-group-text" data="nombre-put"  id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
                     <input type="text" name="title" class="form-control" placeholder="Nombre del producto"
                         aria-label="Nombre producto" aria-describedby="basic-addon1">
+                        <input type="number" id="idput" name="id" aria-label=" Last name" class="form-control"
+                        placeholder="id producto">
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
+                    <span class="input-group-text" data = "url-put" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
                     <input type="url" name="thumbnail" class="form-control" placeholder="URL Imagen producto"
                         aria-label="Recipient's username" aria-describedby="basic-addon2">
 
@@ -96,46 +104,112 @@
                 <!-- <label for="basic-url" class="form-label">Your vanity URL</label> -->
                 <div class="input-group">
                     <span class="input-group-text"> CODIGO / PRECIO / STOCK DISPONIBLE </span>
-                    <input type="number" name="codigo" aria-label=" Last name" class="form-control"
+                    <input type="number" data="codigo-put"  name="codigo" aria-label=" Last name" class="form-control"
                         placeholder="Código">
-                    <input type="number" name="price" aria-label=" First name" class="form-control"
+                    <input type="number"  data="precio-put"  name="price" aria-label=" First name" class="form-control"
                         placeholder="Precio $">
-                    <input type="number" name="stock" aria-label=" Last name" class="form-control"
+                    <input type="number" data="stock-put" name="stock" aria-label=" Last name" class="form-control"
                         placeholder="Stock disponible">
                 </div>
 
                 <div class="input-group">
                     <span class="input-group-text"> DESCRIPCION</span>
-                    <textarea class="form-control" name="descripcion" aria-label="With textarea"
+                    <textarea class="form-control" data="descripcion-put" name="descripcion" aria-label="With textarea"
                         placeholder="Descripción del producto"></textarea>
                 </div>
                 <br>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" name="admin" type="checkbox" role="switch"
-                        id="flexSwitchCheckChecked">
+                    <label><input type="checkbox" id="adminput" value="first_checkbox"> Eres administrador, check acá</label><br>
                     <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
-                        adminitradores. Si eres administrador activa el checkbox antes de guardar.</b>
+                            administradores. Si eres administrador activa el checkbox antes de guardar.</b>
                     </label>
-                    <input class="btn btn-primary" type="submit" value="Guardar">
+                    <input class="btn btn-primary" type="submit" onclick="putItem()" value="Editar">
                 </div>
             </form>
             <hr>
-            </div>
+        </div>
 
         <h2>Para eliminar un producto según su Id, utilice el siguiente casillero</h2>
-        <form action="/productos" method="delete">
-            <input type="number" name="id" aria-label=" Last name" class="form-control" placeholder="Id a aliminar">
-            <br>
+        <form id="formulariodelete">
+           <!-- check id    --> 
+           <input type="number" id="id" name="id" aria-label=" Last name" placeholder="Id a aliminar">
+            
             <div class="form-check form-switch">
-                <input class="form-check-input" name="admin" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+
+                <!-- check admin -->
+                <label><input type="checkbox" id="admin" value="first_checkbox"> Eres administrador, check acá</label>
                 <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
-                    adminitradores. Si eres administrador activa el checkbox.</b>
+                        administradores. Si eres administrador activa el checkbox.</b>
                 </label>
-                <input class="btn btn-primary" type="submit" value="Guardar">
+                <input class="btn btn-primary" type="submit" id="eliminar" onclick ="deleteItem()" value="Eliminar">
             </div>
         </form>
+    <script>
+        //DELETE
+        function deleteItem() {
+        let casilla = document.getElementById('admin');
+        let boolean = casilla.checked;
+        console.log(boolean)
+        if (boolean) {
+            let num = document.querySelector('#id').value;
+            console.log(num)
+                fetch(`http://localhost:8080/productos/${num}`, {
+                    method: "DELETE",
+                    headers: {
+                    'Content-type': 'application/json'
+            },
+                })
+            } else {  
+                alert('necesitas ser administrador para poder acceder a esta ruta')
+                
+            }
+            }    
+        
+        //PUT
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        function putItem() {
+        let casilla = document.getElementById('adminput');
+        let boolean = casilla.checked;
+        console.log(boolean)
+        if (boolean) {
+            let num = document.querySelector('#idput').value;
+            let titulo = document.querySelector('[data="nombre-put"]').value;
+            let url = document.querySelector('[data="url-put"]').value;
+            let codice = document.querySelector('[data="codigo-put"]').value;    
+            let precio = document.querySelector('[data="precio-put"]').value;
+            let stock = document.querySelector('[data="stock-put"]').value;
+            let descripcion = document.querySelector('[data="descripcion-put"]').value;
+        
+        const putmethod = {
+            method: 'PUT',
+            headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+        },          
+       body: JSON.stringify(
+                        {
+                        "title": titulo, 
+                        "thumbnail": url,
+                        "codigo": codice,
+                        "price": precio,
+                        "stock": stock,
+                        "descripcion": descripcion,
+                        "id": num
+                        }
+                    )
+            }                
+            
+
+            fetch(`http://localhost:8080/productos/${num}`, putmethod)
+            .then(res => response.json())
+            .catch(err => console.log(err))        
+            } else {  
+                alert('necesitas ser administrador para poder acceder a esta ruta')
+                
+            }
+            }    
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"></script>
 
