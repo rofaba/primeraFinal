@@ -43,13 +43,13 @@
 
             <form action="/productos" method="post">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
+                    <span class="input-group-text" data="nombre-post" id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
                     <input type="text" name="title" class="form-control" placeholder="Nombre del producto"
                         aria-label="Nombre producto" aria-describedby="basic-addon1" required>
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text"  id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
+                    <span class="input-group-text" data="url-post" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
                     <input type="url" name="thumbnail" class="form-control" placeholder="URL Imagen producto"
                         aria-label="Recipient's username" aria-describedby="basic-addon2" required>
 
@@ -58,27 +58,25 @@
                 <!-- <label for="basic-url" class="form-label">Your vanity URL</label> -->
                 <div class="input-group">
                     <span class="input-group-text"> CODIGO / PRECIO / STOCK DISPONIBLE </span>
-                    <input type="number" name="codigo" aria-label=" Last name" class="form-control" placeholder="Código"
+                    <input type="number" data="codigo-post" name="codigo" aria-label=" Last name" class="form-control" placeholder="Código"
                         required>
-                    <input type="number" name="price" aria-label=" First name" class="form-control"
+                    <input type="number" data="precio-post" name="price" aria-label=" First name" class="form-control"
                         placeholder="Precio $" required>
-                    <input type="number"  name="stock" aria-label=" Last name" class="form-control"
+                    <input type="number" data="stock-post"  name="stock" aria-label=" Last name" class="form-control"
                         placeholder="Stock disponible" required>
                 </div>
 
                 <div class="input-group">
                     <span class="input-group-text"> DESCRIPCION</span>
-                    <textarea  class="form-control" name="descripcion" aria-label="With textarea"
+                    <textarea  class="form-control" data="descripcion-post" name="descripcion" aria-label="With textarea"
                         placeholder="Descripción del producto" required></textarea>
                 </div>
                 <br>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" name="admin" type="checkbox" role="switch"
-                        id="flexSwitchCheckChecked">
-                    <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
-                            administradores. Si eres administrador activa el checkbox antes de guardar.</b>
-                    </label>
-                    <input class="btn btn-primary" type="submit" value="Guardar">
+                <input type="checkbox" id="admin-post" value="first_checkbox"> </label>
+                <label class="form-check-label"  for="flexSwitchCheckChecked"> <b>Esta acción es solo para
+                        administradores. Si eres administrador activa el checkbox.</b>
+                </label>
+                    <input class="btn btn-primary" type="submit" onclick="postItem()" value="Guardar">
                 </div>
                 <hr>
             </form>
@@ -119,7 +117,8 @@
                 </div>
                 <br>
                 <div class="form-check form-switch">
-                    <label><input type="checkbox" id="adminput" value="first_checkbox"> Eres administrador, check acá</label><br>
+                    
+                    <input type="checkbox" id="adminput" value="first_checkbox"> </label>
                     <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
                             administradores. Si eres administrador activa el checkbox antes de guardar.</b>
                     </label>
@@ -137,7 +136,7 @@
             <div class="form-check form-switch">
 
                 <!-- check admin -->
-                <label><input type="checkbox" id="admin" value="first_checkbox"> Eres administrador, check acá</label>
+                <label><input type="checkbox" id="admin" value="first_checkbox"> </label>
                 <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
                         administradores. Si eres administrador activa el checkbox.</b>
                 </label>
@@ -145,10 +144,52 @@
             </div>
         </form>
     <script>
+        //POST
+        function postItem() {
+        let casillapost = document.getElementById('admin-post');
+        let boolean = casillapost.checked;
+        console.log(boolean)
+        if (boolean) {
+            
+            let titulo = document.querySelector('[data="nombre-post"]').value;
+            let url = document.querySelector('[data="url-post"]').value;
+            let codice = document.querySelector('[data="codigo-post"]').value;    
+            let precio = document.querySelector('[data="precio-post"]').value;
+            let stock = document.querySelector('[data="stock-post"]').value;
+            let descripcion = document.querySelector('[data="descripcion-post"]').value;
+        
+        const postmethod = {
+            method: 'POST',
+            headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+           },          
+             body: JSON.stringify(
+                        {
+                        "title": titulo, 
+                        "thumbnail": url,
+                        "codigo": codice,
+                        "price": precio,
+                        "stock": stock,
+                        "descripcion": descripcion,
+                        
+                        }
+                    )
+            }                
+            
+            fetch(`http://localhost:8080/productos`, postmethod)
+            .then(res => response.json())
+            .catch(err => console.log(err))        
+
+        } else {  
+                alert('necesitas ser administrador para poder acceder a esta ruta')
+                
+            }
+            }    
+
         //DELETE
         function deleteItem() {
-        let casilla = document.getElementById('admin');
-        let boolean = casilla.checked;
+        let casilladel = document.getElementById('admin');
+        let boolean = casilladel.checked;
         console.log(boolean)
         if (boolean) {
             let num = document.querySelector('#id').value;
@@ -168,8 +209,8 @@
         //PUT
 
         function putItem() {
-        let casilla = document.getElementById('adminput');
-        let boolean = casilla.checked;
+        let casillaput = document.getElementById('adminput');
+        let boolean = casillaput.checked;
         console.log(boolean)
         if (boolean) {
             let num = document.querySelector('#idput').value;
@@ -198,7 +239,6 @@
                     )
             }                
             
-
             fetch(`http://localhost:8080/productos/${num}`, putmethod)
             .then(res => response.json())
             .catch(err => console.log(err))        
@@ -208,6 +248,7 @@
             }
             }    
     </script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

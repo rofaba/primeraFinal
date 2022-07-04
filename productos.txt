@@ -34,5 +34,39 @@
     "stock": "7777",
     "descripcion": "prueba PUT que seguro falla",
     "id": "4"
+  },
+  {
+    "title": "Prueba Funko Guardar",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "333",
+    "price": "2222",
+    "stock": "33",
+    "descripcion": "prueba de post fetch, seguro falla",
+    "id": 5
+  },
+  {
+    "title": "Prueba Funko Guardar",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "333",
+    "price": "2222",
+    "stock": "33",
+    "descripcion": "prueba de post fetch, seguro falla",
+    "id": 6
+  },
+  {
+    "codigo": "777",
+    "price": "777",
+    "stock": "7655555555",
+    "descripcion": "probando N",
+    "id": "7"
+  },
+  {
+    "title": "FUNKO PRUEBA",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "444",
+    "price": "333",
+    "stock": "222",
+    "descripcion": "prueba ruta post sin admin",
+    "id": 8
   }
 ]
