@@ -58,15 +58,59 @@
     "price": "777",
     "stock": "7655555555",
     "descripcion": "probando N",
-    "id": "7"
+    "id": 7
   },
   {
-    "title": "FUNKO PRUEBA",
-    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
-    "codigo": "444",
-    "price": "333",
-    "stock": "222",
-    "descripcion": "prueba ruta post sin admin",
+    "title": "funko prueba id8",
+    "thumbnail": "https://tecolotito.elsiglodetorreon.com.mx/i/2017/11/999859.jpeg",
+    "codigo": "8",
+    "price": "8888",
+    "stock": "88",
+    "descripcion": "numero 888",
     "id": 8
+  },
+  {
+    "codigo": "",
+    "price": "",
+    "stock": "",
+    "descripcion": "",
+    "id": 9
+  },
+  {
+    "codigo": "1111",
+    "price": "11111",
+    "stock": "11",
+    "descripcion": "111111111",
+    "id": "11"
+  },
+  {
+    "codigo": "12",
+    "price": "12",
+    "stock": "12",
+    "descripcion": "1212121212121212",
+    "id": 12
+  },
+  {
+    "title": "funko de prueba 12",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "12",
+    "price": "12",
+    "stock": "12",
+    "descripcion": "1212121212121212",
+    "id": 13
+  },
+  {
+    "codigo": "",
+    "price": "",
+    "stock": "",
+    "descripcion": "",
+    "id": 14
+  },
+  {
+    "codigo": "",
+    "price": "",
+    "stock": "",
+    "descripcion": "",
+    "id": 15
   }
 ]

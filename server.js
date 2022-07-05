@@ -164,6 +164,30 @@ app.get('/productos', (req, res) => {
     });    
 }); 
 
+app.get('/productos/:id', (req, res)=> {
+   const data= archivo.getAll();
+   let arrayproductos = data;
+   console.log(arrayproductos)
+        
+   try {    // const datosExistentes = JSON.parse(await fs.promises.readFile(`./${this.contenedor}`, 'utf-8'));
+            // let arrayProductos = datosExistentes;
+            let num = req.params.id;
+            console.log(num)
+            const elementoBuscado = arrayproductos.find((element) => element.id == num);
+            if (elementoBuscado == undefined) {
+                console.log(`No se encuentra ningún elemento con el id: ${num}`)
+            } else ;
+            let objdatos= []
+            objdatos.push(elementoBuscado)
+            console.log(objdatos)
+            res.render('productos', {
+                datos: objdatos
+            });
+        } catch (error) {
+            console.log('Ha ocurrido un error en el proceso', error)
+
+    }    })
+
 app.post('/productos', 
 
 //[     body('admin', 'Ruta autorizada solo para administradores')
@@ -171,7 +195,7 @@ app.post('/productos',
 // ], 
 (req, res) => {
 
-    //validacion admin
+    //validacion campos
     // const error = validationResult(req);
     // if (!error.isEmpty()){
     //     console.log({error: -1, descripcion: "ruta /productos en método POST, no autorizada"});

@@ -17,8 +17,11 @@
         <div class="container-fluid">
             <div class="panelSuperior">
                 <div>
-                    <h2 class="titulo"> BIENVENIDO TIENDA BACKEND </h2>
-                    <a class="btn btn-dark" href="http://localhost:8080/productos"> Ir a Productos </a>
+                    <h2 class="titulo"> BIENVENIDO TIENDA BACKEND    -- /// IMPLEMENTAR TIME STAMP ///-- BUG POST </h2>
+                    <a class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a>
+                    <br>
+                    
+
                 </div>
 
             </div>
@@ -73,9 +76,11 @@
                 </div>
                 <br>
                 <input type="checkbox" id="admin-post" value="first_checkbox"> </label>
-                <label class="form-check-label"  for="flexSwitchCheckChecked"> <b>Esta acción es solo para
+
+                <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
                         administradores. Si eres administrador activa el checkbox.</b>
                 </label>
+
                     <input class="btn btn-primary" type="submit" onclick="postItem()" value="Guardar">
                 </div>
                 <hr>
@@ -144,6 +149,11 @@
             </div>
         </form>
     <script>
+
+        //GET PRODUCTO POR ID
+
+         
+
         //POST
         function postItem() {
         let casillapost = document.getElementById('admin-post');
