@@ -1,0 +1,67 @@
+<%- include("template/cabecera", {titulo: 'Carro de Compras' }); -%>
+
+
+<div class="container-fluid">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Carro de Compras </h5>
+        <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Id Carro - Timestamp Carro
+        </h3>
+        <a class="btn btn-primary" href="http://localhost:8080/productos"> Cerrar </a>
+    </div>
+    <div class="offcanvas-body">
+        <div class="tablaCarro">
+<table class="table">
+
+<% if(datosCarro.length < 1) { %>
+<h2>No hay productos para mostrar</h2>
+
+<% } else { %>
+
+<tr >
+<th scope= col> Id </th>
+<th scope= col> Timestamp </th>
+<th scope= col> Nombre </th>
+<th scope= col> Descripcion </th>
+<th scope= col> Código </th>
+<th scope= col> Imagen </th>
+<th scope= col> Precio </th>
+<th scope= col> Stock </th>
+
+</tr>
+<% for (var i=0; i < datosCarro.length; i++) { %>
+<tr scope= row >
+    <td>
+        <%= datosCarro[i].id %>
+    </td>
+    <td>
+        <%= datosCarro[i].timestamp %>
+    </td>
+    <td>
+        <%= datosCarro[i].title %>
+   </td>
+   <td>
+    <%= datosCarro[i].descripcion %>
+</td>
+<td>
+    <%= datosCarro[i].codigo %>
+</td>
+    <td>
+        <img src="<%= datosCarro[i].thumbnail %>" alt="<%= datosCarro[i].title %>" width="50px">
+    </td>
+    
+    <td>
+        <%= datosCarro[i].price %>
+    </td>
+    <td>
+        <%= datosCarro[i].stock %>
+    </td>
+       
+    <br>
+</tr>
+<% } %>
+
+
+<% } %>
+</table>
+        </div>
+    </div>
+</div>

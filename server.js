@@ -132,6 +132,7 @@ const port = process.env.PORT || 8080;
 const fs = require ('fs');
 const { collapseTextChangeRangesAcrossMultipleVersions, InferencePriority } = require('typescript');
 const { Console } = require('console');
+const e = require('express');
 
 //SETTINGS
 
@@ -265,7 +266,7 @@ app.put('/productos/:id', (req, res) => {
     }
 })
 
-
+//BORRAR PRODUCTO POR ID
 app.delete('/productos/:id', (req, res) => {
          
         const existentes = JSON.parse(fs.readFileSync('productos.txt', 'utf-8'));
@@ -288,6 +289,33 @@ app.delete('/productos/:id', (req, res) => {
 
 // app.use('/productos', router);
 // app.use('/carrito', router);
+
+// RUTAS CARRO
+app.get('/carrito/:id/productos', (req, res) => {
+    let productoprueba = [
+{
+    "title": "Funko Pop Televisión: Silicon Valley Gilfoyle",
+    "price": 24990,
+    "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
+    "id": 2,
+    "timestamp": 888,
+    "codigo": 456,
+    "stock": 55,
+    "descripcion": "funko pop de pelicula2"
+}
+    ]
+    const carros = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+    let carrosarray = carros;
+    const idcarro = req.params.id;
+    if ( carrosarray.find(e => e.id == idcarro) == undefined) {
+        console.log('ERROR. No existe carro con ese id')}
+    const carrosolicitado = carrosarray.indexOf(carrosarray.find(e => e.id == idcarro));
+    const carroparafront = carrosarray[carrosolicitado].productos
+            res.render('carrito', { datosCarro: carroparafront })
+
+                 
+            })
+
 
 //error404
 app.use((req, res, next) => {

@@ -28,13 +28,16 @@
             <h2 class="titulo"> PRODUCTOS </h2>
             <a class="btn btn-dark" href="http://localhost:8080"> Ir a inicio </a>
             <a class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a> <br>
-            <a class="btn btn-dark" onclick="idGet()">  Ver producto con id: </a> <input type="number" id="id-get" aria-label=" Last name" class="form-control"
+            <a class="btn btn-dark" onclick="idGet()">  Ver producto con id: </a> 
+            <input type="number" id="id-get" aria-label=" Last name" class="form-control"
             placeholder="id producto">
-        </div>
-
+            <a class="btn btn-dark" href="http://localhost:8080/carrito"> Ver todos los productos </a> <br>
+        
+    </div>
+<br>
         <!-- NAVBAR -->
 
-        <ul class="nav justify-content-center">
+        <!-- <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Active</a>
             </li>
@@ -47,7 +50,7 @@
             <li class="nav-item">
                 <a class="nav-link disabled">Disabled</a>
             </li>
-        </ul>
+        </ul> -->
 
 
         <!-- Productos -->
@@ -96,76 +99,8 @@
                             <% } %>
 
                     </div>
-                    <br><br>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Ver Carro de
-                        Compras</button>
-
-                    <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1"
-                        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Carro de Compras </h5>
-                            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Id Carro - Timestamp Carro
-                            </h3>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div class="tablaCarro">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"> Id </th>
-                                            <th scope="col"> TimeStamp </th>
-                                            <th scope="col"> Nombre </th>
-                                            <th scope="col"> Descripción </th>
-                                            <th scope="col"> Código </th>
-                                            <th scope="col"> Imagen </th>
-                                            <th scope="col"> Precio </th>
-                                            <th scope="col"> Stock </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                    </tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>@twitter</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>Jacob</td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
+                    <br>
+                                      
         </div>
         <script>
             function idGet() {
