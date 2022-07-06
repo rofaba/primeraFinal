@@ -351,6 +351,44 @@ app.get('/carrito/:id/productos', (req, res) => {
 
                  
             })
+app.post('/carrito/:id/productos/:id_product', (req, res, next) => {
+   try {  
+    const todosProductos = JSON.parse(fs.readFileSync('productos.txt', 'utf-8'));
+    const productosarray = todosProductos;
+    const idproducto = Number(req.params.id_product); 
+    const indiceAgregar =  productosarray.findIndex((element) => element.id == idproducto);  
+    const productoAgregar = productosarray[indiceAgregar]
+        //buscar carro asociado
+    const carrosexistentes = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+    const carrosarray = carrosexistentes;
+    const idcarropost = Number(req.params.id);
+    const carroModificar = carrosarray.findIndex(element => element.id == idcarropost);
+    const carroactual = carrosarray[carroModificar]
+        
+    const productosencarro = carroactual.productos;
+    productosencarro.push(productoAgregar);
+    carroactual.productos = productosencarro;
+    carrosarray[idcarropost] = carroactual
+    fs.writeFileSync('carrito.txt', JSON.stringify(carrosarray, null, 2));
+    console.log(carrosarray[idcarropost])
+    console.log('producto agregado')
+    //leer nuevo carro
+    
+    const carronuevo = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+    const newcarrosarray = carronuevo;
+    const carroSolicitado = newcarrosarray.indexOf(newcarrosarray.find(e => e.id == idcarropost));
+    const carroparafront = newcarrosarray[carroSolicitado].productos
+    
+    res.redirect(200, `/carrito/${idcarropost}/productos`)
+    
+    }
+    catch (error) {
+    console.log('Ha ocurrido un error en el proceso', error)
+    }
+})
+
+
+
 
 
 //error404

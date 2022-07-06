@@ -1,10 +1,18 @@
 <%- include("template/cabecera", {titulo: 'Carro de Compras' }); -%>
 
-
+<body>
 <div class="container-fluid">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Carro de Compras </h5>
         <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Id Carro - Timestamp Carro
         </h3>
+        <a class="btn btn-secondary" onclick="agregarProducto()" > Agregar producto a carro por Id de ambos</a>
+        <input type="number" id="id-carro" aria-label=" Last name"  placeholder="id carro">
+        <input type="number" id="id-producto" aria-label=" Last name"  placeholder="id producto"> 
+        <a class="btn btn-primary" onclick="actualizarCarro()"> Actualizar Carro </a>
+        <br>
+        <br>
+
+        
         <a class="btn btn-primary" href="http://localhost:8080/productos"> Cerrar </a>
     </div>
     <div class="offcanvas-body">
@@ -65,3 +73,25 @@
         </div>
     </div>
 </div>
+<script>
+
+function agregarProducto() {
+            let carroId = document.querySelector('#id-carro').value;
+            let productoId = document.querySelector('#id-producto').value;
+            
+            fetch(`http://localhost:8080/carrito/${carroId}/productos/${productoId}`, {
+                    method: "POST",
+                    headers: {
+                    'Content-type': 'application/json'
+            },
+                })
+               
+            } 
+
+            function actualizarCarro() {
+                location.reload();
+            }
+
+</script>
+</body>
+</html>

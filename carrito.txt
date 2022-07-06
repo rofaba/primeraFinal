@@ -22,8 +22,111 @@
         "codigo": 456,
         "stock": 55,
         "descripcion": "funko pop de pelicula2"
-      } ]
       },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "title": "Funko Pop Star Wars: The Mandalorian",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
+        "id": 1,
+        "timestamp": 999,
+        "codigo": 123,
+        "stock": 50,
+        "descripcion": "funko pop de pelicula3"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "timestamp": 123,
+    "productos": [
+      {
+        "title": "Funko Pop Star Wars: The Mandalorian",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
+        "id": 1,
+        "timestamp": 999,
+        "codigo": 123,
+        "stock": 50,
+        "descripcion": "funko pop de pelicula3"
+      },
+      {
+        "title": "Funko Pop Televisión: Silicon Valley Gilfoyle",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
+        "id": 2,
+        "timestamp": 888,
+        "codigo": 456,
+        "stock": 55,
+        "descripcion": "funko pop de pelicula2"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "title": "Funko Pop Star Wars: The Mandalorian",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
+        "id": 1,
+        "timestamp": 999,
+        "codigo": 123,
+        "stock": 50,
+        "descripcion": "funko pop de pelicula3"
+      }
+    ]
+  },
   {
     "id": 2,
     "timestamp": 123,
@@ -47,14 +150,45 @@
         "codigo": 456,
         "stock": 55,
         "descripcion": "funko pop de pelicula2"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      },
+      {
+        "title": "Funko Pop Star Wars: The Mandalorian",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
+        "id": 1,
+        "timestamp": 999,
+        "codigo": 123,
+        "stock": 50,
+        "descripcion": "funko pop de pelicula3"
       }
-    ]
-  },
-  {
-    "id": 3,
-    "timestamp": 123,
-    "productos": [
-      {}
     ]
   },
   {
@@ -74,6 +208,119 @@
   {
     "id": 8,
     "timestamp": 123,
-    "productos": [ {}]
+    "productos": [
+      {}
+    ]
+  },
+  {
+    "id": 9,
+    "timestamp": 123,
+    "productos": [
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      },
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      },
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      },
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "timestamp": 123,
+    "productos": [
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      }
+    ]
+  },
+  null,
+  {
+    "id": 9,
+    "timestamp": 123,
+    "productos": [
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      },
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      },
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      },
+      {
+        "title": "funko prueba",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+        "codigo": "111",
+        "price": "111",
+        "stock": "111",
+        "descripcion": "prueba para borrar ",
+        "id": 3
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "timestamp": 123,
+    "productos": [
+      {
+        "codigo": "7777",
+        "price": "777",
+        "stock": "7777",
+        "descripcion": "prueba PUT que seguro falla",
+        "id": "4"
+      }
+    ]
   }
 ]
