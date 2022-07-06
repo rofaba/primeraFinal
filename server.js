@@ -373,21 +373,44 @@ app.post('/carrito/:id/productos/:id_product', (req, res, next) => {
     console.log(carrosarray[idcarropost])
     console.log('producto agregado')
     //leer nuevo carro
-    
-    const carronuevo = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
-    const newcarrosarray = carronuevo;
-    const carroSolicitado = newcarrosarray.indexOf(newcarrosarray.find(e => e.id == idcarropost));
-    const carroparafront = newcarrosarray[carroSolicitado].productos
-    
-    res.redirect(200, `/carrito/${idcarropost}/productos`)
+    res.redirect(200)
     
     }
     catch (error) {
     console.log('Ha ocurrido un error en el proceso', error)
     }
 })
+// BORRAR PRODUCTO POR ID CARRO Y PRODUCTO
 
+app.delete('/carrito/:id/productos/:id_product', (req, res) => {
+    try {
+                //busca carro a modificar 
+     const carrosexistentes = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+     const carrosarray = carrosexistentes;
+     const idcarrodel = Number(req.params.id);
+     const indexCarroModificar = carrosarray.findIndex(element => element.id == idcarrodel);
+     const carroactual = carrosarray[indexCarroModificar] 
+     const grupoproductos = carroactual.productos
+     //busqueda producto
+        console.log(grupoproductos)
+     const idproductodel = Number(req.params.id_product); 
+     const indiceBorrar =  grupoproductos.findIndex((element) => element.id == idproductodel);  
+     grupoproductos.splice(indiceBorrar, 1)
 
+     carroactual.productos = grupoproductos         
+     carrosarray[indexCarroModificar]=carroactual
+     
+     fs.writeFileSync('carrito.txt', JSON.stringify(carrosarray, null, 2));
+     console.log(carrosarray[indexCarroModificar])
+     console.log('producto eliminado')
+     //leer nuevo carro
+     res.send(200)
+     
+     }
+     catch (error) {
+     console.log('Ha ocurrido un error en el proceso', error)
+     }
+ })
 
 
 
