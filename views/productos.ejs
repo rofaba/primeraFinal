@@ -28,13 +28,14 @@
             <h2 class="titulo"> PRODUCTOS </h2>
             <a class="btn btn-dark" href="http://localhost:8080"> Ir a inicio </a>
             <a class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a> <br>
-            <a class="btn btn-dark" onclick="idGet()">  Ver producto con id: </a> 
-            <input type="number" id="id-get" aria-label=" Last name" class="form-control"
-            placeholder="id producto">
-            <a class="btn btn-dark" href="http://localhost:8080/carrito"> Ver todos los productos </a> <br>
-        
-    </div>
-<br>
+            <a class="btn btn-dark" onclick="idGet()"> Ver producto con id: </a>
+            <input type="number" id="id-get" aria-label=" Last name" class="form-control" placeholder="id producto">
+            
+            <a class="btn btn-primary" onclick="crearCarroNuevo()"> Crear Carro Nuevo </a>
+            <a class="btn btn-primary" onclick="deleteCarro()" > Eliminar Carro por ID </a>
+            <input type="number" id="idcarroborrar" aria-label=" Last name" class="form-control" placeholder="id producto">
+        </div>
+        <br>
         <!-- NAVBAR -->
 
         <!-- <ul class="nav justify-content-center">
@@ -100,21 +101,43 @@
 
                     </div>
                     <br>
-                                      
+
         </div>
         <script>
             function idGet() {
                 let num = document.querySelector('#id-get').value;
-                window.location.href=`http://localhost:8080/productos/${num}`
-
-                // fetch(`http://localhost:8080/productos/${num}`, {
-                //     method: "GET",
-                //     headers: {
-                //         'Content-type': 'application/json'
-                //     },
-                // })
-
+                window.location.href = `http://localhost:8080/productos/${num}`
             }
+
+            function crearCarroNuevo() {
+                const postmethod = {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                    body: JSON.stringify(
+                        {
+                            "id": 1,
+                            "timestamp": 123,
+                            "productos":
+                                [ { } ]
+                        })
+                }
+            fetch(`http://localhost:8080/carrito`, postmethod)
+            .catch(err => console.log(err))        
+        }
+        
+        function deleteCarro() {
+            let num = document.querySelector('#idcarroborrar').value;
+            fetch(`http://localhost:8080/carrito/${num}`, {
+                    method: "DELETE",
+                    headers: {
+                    'Content-type': 'application/json'
+            },
+                })
+               
+            } 
+
 
         </script>
 

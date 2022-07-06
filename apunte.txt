@@ -1,3 +1,16 @@
+let productoprueba = [
+{
+    "title": "Funko Pop Televisión: Silicon Valley Gilfoyle",
+    "price": 24990,
+    "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
+    "id": 2,
+    "timestamp": 888,
+    "codigo": 456,
+    "stock": 55,
+    "descripcion": "funko pop de pelicula2"
+}
+    ]
+
 const fs = require('fs')
 
 let archivo;

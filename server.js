@@ -278,7 +278,7 @@ app.delete('/productos/:id', (req, res) => {
                     if (elementoParaBorrar != -1) {
                 productosarray.splice((productosarray.findIndex((producto) => producto.id == idparaborrar)), 1);
                 fs.writeFileSync('productos.txt', JSON.stringify(productosarray, null, 2));
-                console.log('El producto ha sido correctamente eliminado')
+                console.log(`El producto ${idparaborrar} ha sido correctamente eliminado`)
 
                     } else console.log('No se encuentra el producto con el id solicitado')
         }
@@ -290,20 +290,56 @@ app.delete('/productos/:id', (req, res) => {
 // app.use('/productos', router);
 // app.use('/carrito', router);
 
-// RUTAS CARRO
+// RUTAS CARRO // RUTAS CARRO // RUTAS CARRO  // RUTAS CARRO
+
+app.post('/carrito', (req, res) => {
+    const carritos = carrito.getAll();
+    const carrosArray = carritos;
+    const nuevoCarro = req.body
+    
+    try {
+        if (carrosArray.length == 0) {
+            nuevoCarro.id = 1
+        } else {
+            const identificadores = [];
+            carrosArray.forEach(element => identificadores.push(element.id));
+            nuevoCarro.id = (Math.max(...identificadores) + 1);
+        }
+        carrosArray.push(nuevoCarro);
+
+        const nuevoArrayCarros = JSON.stringify(carrosArray, null, 2)
+        fs.writeFileSync('carrito.txt', nuevoArrayCarros);
+        console.log(`se ha ingresado un carro nuevo con el id: ${nuevoCarro.id}`)
+        res.sendStatus(200)
+    }
+    catch (error) {
+        console.log('Ha ocurrido un error en el proceso', error)
+    }
+})
+
+app.delete('/carrito/:id', (req, res) => {
+         
+        const carrosexistentes = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+        const carrosarray = carrosexistentes;
+        const idparaborrar = Number(req.params.id);
+              try {
+                let elementoParaBorrar = carrosarray.findIndex((element) => element.id == idparaborrar);
+                
+                    if (elementoParaBorrar != -1) {
+                carrosarray.splice((carrosarray.findIndex((carro) => carro.id == idparaborrar)), 1);
+                fs.writeFileSync('carrito.txt', JSON.stringify(carrosarray, null, 2));
+                console.log(`El carrito ${idparaborrar} ha sido correctamente eliminado`)
+
+                    } else console.log('No se encuentra un carro con el id solicitado')
+        }
+        catch (error) {
+            console.log('Ha ocurrido un error en el proceso', error)
+        }
+    })
+
+
 app.get('/carrito/:id/productos', (req, res) => {
-    let productoprueba = [
-{
-    "title": "Funko Pop Televisión: Silicon Valley Gilfoyle",
-    "price": 24990,
-    "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
-    "id": 2,
-    "timestamp": 888,
-    "codigo": 456,
-    "stock": 55,
-    "descripcion": "funko pop de pelicula2"
-}
-    ]
+    
     const carros = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
     let carrosarray = carros;
     const idcarro = req.params.id;

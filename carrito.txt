@@ -1,60 +1,82 @@
 [
-    {
+  {
+    "id": 1,
+    "timestamp": 123,
+    "productos": [
+      {
+        "title": "Funko Pop Star Wars: The Mandalorian",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
         "id": 1,
-        "timestamp": 123,
-        "productos":
-           [
-            {
-                "title": "Funko Pop Star Wars: The Mandalorian",
-                "price": 24990,
-                "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
-                "id": 1,
-                "timestamp": 999,
-                "codigo": 123,
-                "stock": 50,
-                "descripcion": "funko pop de pelicula3"
-            },
-            {
-                "title": "Funko Pop Televisión: Silicon Valley Gilfoyle",
-                "price": 24990,
-                "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
-                "id": 2,
-                "timestamp": 888,
-                "codigo": 456,
-                "stock": 55,
-                "descripcion": "funko pop de pelicula2"
-            }
-            ]
-            
-            
-     },
-     {
+        "timestamp": 999,
+        "codigo": 123,
+        "stock": 50,
+        "descripcion": "funko pop de pelicula3"
+      },
+      {
+        "title": "Funko Pop Televisión: Silicon Valley Gilfoyle",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
         "id": 2,
-        "timestamp": 123,
-        "productos":
-           [
-            {
-                "title": "Funko Pop Star Wars: The Mandalorian CARRO 2",
-                "price": 24990,
-                "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
-                "id": 1,
-                "timestamp": 999,
-                "codigo": 123,
-                "stock": 50,
-                "descripcion": "funko pop de pelicula3"
-            },
-            {
-                "title": "Funko Pop Televisión: Silicon Valley Gilfoyle CARRO 2",
-                "price": 24990,
-                "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
-                "id": 2,
-                "timestamp": 888,
-                "codigo": 456,
-                "stock": 55,
-                "descripcion": "funko pop de pelicula2"
-            }
-            ]
-            
-            
-     }
-]    
+        "timestamp": 888,
+        "codigo": 456,
+        "stock": 55,
+        "descripcion": "funko pop de pelicula2"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "timestamp": 123,
+    "productos": [
+      {
+        "title": "Funko Pop Star Wars: The Mandalorian CARRO 2",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/5176rALHhgS._AC_UL480_FMwebp_QL65_.jpg",
+        "id": 1,
+        "timestamp": 999,
+        "codigo": 123,
+        "stock": 50,
+        "descripcion": "funko pop de pelicula3"
+      },
+      {
+        "title": "Funko Pop Televisión: Silicon Valley Gilfoyle CARRO 2",
+        "price": 24990,
+        "thumbnail": "https://m.media-amazon.com/images/I/41PsLYv3r2L._AC_.jpg",
+        "id": 2,
+        "timestamp": 888,
+        "codigo": 456,
+        "stock": 55,
+        "descripcion": "funko pop de pelicula2"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestamp": 123,
+    "productos": [
+      {}
+    ]
+  },
+  {
+    "id": 4,
+    "timestamp": 123,
+    "productos": [
+      {}
+    ]
+  },
+  {
+    "id": 5,
+    "timestamp": 123,
+    "productos": [
+      {}
+    ]
+  },
+  {
+    "id": 8,
+    "timestamp": 123,
+    "productos": [
+      {}
+    ]
+  }
+]
