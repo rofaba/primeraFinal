@@ -27,13 +27,16 @@
         <div class="panelSuperior">
             <h2 class="titulo"> PRODUCTOS </h2>
             <a class="btn btn-dark" href="http://localhost:8080"> Ir a inicio </a>
-            <a class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a> <br>
+            <a class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a> 
             <a class="btn btn-dark" onclick="idGet()"> Ver producto con id: </a>
             <input type="number" id="id-get" aria-label=" Last name" class="form-control" placeholder="id producto">
             
             <a class="btn btn-primary" onclick="crearCarroNuevo()"> Crear Carro Nuevo </a>
             <a class="btn btn-primary" onclick="deleteCarro()" > Eliminar Carro por ID </a>
             <input type="number" id="idcarroborrar" aria-label=" Last name" class="form-control" placeholder="id producto">
+            <a class="btn btn-primary" onclick="irCarroNumero()"> Ir al Carro de Compras Nº: </a>
+            <input type="number" id="irCarroId" aria-label=" Last name" class="form-control" placeholder="id carro">
+            
         </div>
         <br>
         <!-- NAVBAR -->
@@ -104,9 +107,15 @@
 
         </div>
         <script>
+
+        function irCarroNumero() {
+                const numcarro = document.querySelector('#irCarroId').value;
+                window.location.href = `http://localhost:8080/carrito/${numcarro}/productos`;
+            }
+
             function idGet() {
-                let num = document.querySelector('#id-get').value;
-                window.location.href = `http://localhost:8080/productos/${num}`
+                const numproduct = document.querySelector('#id-get').value;
+                window.location.href = `http://localhost:8080/productos/${numproduct}`
             }
 
             function crearCarroNuevo() {

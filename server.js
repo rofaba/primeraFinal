@@ -345,8 +345,8 @@ app.get('/carrito/:id/productos', (req, res) => {
     const idcarro = req.params.id;
     if ( carrosarray.find(e => e.id == idcarro) == undefined) {
         console.log('ERROR. No existe carro con ese id')}
-    const carrosolicitado = carrosarray.indexOf(carrosarray.find(e => e.id == idcarro));
-    const carroparafront = carrosarray[carrosolicitado].productos
+    const carroSolicitado = carrosarray.indexOf(carrosarray.find(e => e.id == idcarro));
+    const carroparafront = carrosarray[carroSolicitado].productos
             res.render('carrito', { datosCarro: carroparafront })
 
                  
