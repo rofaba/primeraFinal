@@ -84,5 +84,92 @@
     "stock": "12",
     "descripcion": "1212121212121212",
     "id": 13
+  },
+  {
+    "codigo": "1",
+    "price": "22222",
+    "stock": "10",
+    "descripcion": "un rodrigo de prueba",
+    "id": 14
+  },
+  {
+    "codigo": "1",
+    "price": "22222",
+    "stock": "10",
+    "descripcion": "un rodrigo de prueba",
+    "id": 15
+  },
+  {
+    "title": "rodrigo",
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyQAqSENOLLJQTDFzsQaz1rVxe8aRwFtQ6jQ&usqp=CAU",
+    "codigo": "1",
+    "price": "22222",
+    "stock": "10",
+    "descripcion": "un rodrigo de prueba",
+    "id": 16
+  },
+  {
+    "codigo": "456654",
+    "price": "24990",
+    "stock": "5",
+    "descripcion": "fu8nko de prueba dos con timestamp",
+    "id": 17,
+    "timestamp": 1657223762080
+  },
+  {
+    "title": "Funko Rodrigo",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "456654",
+    "price": "24990",
+    "stock": "5",
+    "descripcion": "fu8nko de prueba dos con timestamp",
+    "id": 18,
+    "timestamp": 1657223762086
+  },
+  {
+    "codigo": "",
+    "price": "",
+    "stock": "",
+    "descripcion": "",
+    "id": 19,
+    "timestamp": 1657223837953
+  },
+  {
+    "codigo": "1213",
+    "price": "11111",
+    "stock": "2",
+    "descripcion": "cacax3",
+    "id": 20,
+    "timestamp": 1657223876125
+  },
+  {
+    "title": "caca",
+    "thumbnail": "https://tecolotito.elsiglodetorreon.com.mx/i/2017/11/999859.jpeg",
+    "codigo": "1213",
+    "price": "11111",
+    "stock": "2",
+    "descripcion": "cacax3",
+    "id": 21,
+    "timestamp": 1657223876132
+  },
+  {
+    "title": "caca3",
+    "thumbnail": "https://tecolotito.elsiglodetorreon.com.mx/i/2017/11/999859.jpeg",
+    "codigo": "123",
+    "price": "123",
+    "stock": "133",
+    "descripcion": "33333333",
+    "id": 23,
+    "timestamp": 1657223961916
+  },
+  {
+    "title": "rrr",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_776087-MLC50069900369_052022-F.webp",
+    "codigo": "111",
+    "price": "111",
+    "stock": "111",
+    "descripcion": "ttttttttt",
+    "id": 24,
+    "timestamp": 1657224757376
   }
 ]

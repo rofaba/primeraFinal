@@ -1,16 +1,18 @@
-class ContenedorProductos {
+const fs = require ('fs');
+
+class Contenedor {
     constructor(nombre) {
         this.contenedor = nombre
     }
-    //METODOS
 
-    //método "save": recibe un objeto, lo guarda en el archvio y devuelve su id.
+    //método "save": recibe un objeto, lo guarda en archivo y devuelve su id.
     async save(productoNuevo) {
         try {
             const datosExistentes = JSON.parse(await fs.promises.readFile(`./${this.contenedor}`, 'utf-8'));
             let arrayProductos = datosExistentes;
+            
 
-            // asignar id
+
             if (arrayProductos.length == 0) {
                 productoNuevo.id = 1
             } else {
@@ -33,7 +35,6 @@ class ContenedorProductos {
     }
 
     // método "getById()" recibe un id y retorna el objeto con ese id || null si no está.            
-
     async getById(num) {
         try {
             const datosExistentes = JSON.parse(await fs.promises.readFile(`./${this.contenedor}`, 'utf-8'));
@@ -44,6 +45,7 @@ class ContenedorProductos {
                 return (null)
             } else console.log('El producto solicitado es:')
             console.log(elementoBuscado);
+            return elementoBuscado
         }
         catch (error) {
             console.log('Ha ocurrido un error en el proceso', error)
@@ -52,17 +54,21 @@ class ContenedorProductos {
     }
 
     // método "gelAll()" Devuelve un array con los objetos presentes en el archivo
-
-    async getAll() {
+    getAll() {
         try {
-            const datosExistentes = JSON.parse(await fs.promises.readFile(`./${this.contenedor}`, 'utf-8'));
-
-            let arrayProductos = datosExistentes;
-            if (arrayProductos.length == 0) {
+            const datosExistentes = JSON.parse(fs.readFileSync(`./${this.contenedor}`, 'utf-8'));
+            
+            if (datosExistentes.length == 0) {
                 console.log('El archivo no contiene productos')
-            } else  console.log('El archivo contiene los siguiente productos:')
-                    console.log(arrayProductos)
+            } else 
+                {
+                   
+                return datosExistentes
+                    
+                };
+                                    
         }
+
         catch (error) {
             console.log('Ha ocurrido un error en el proceso', error)
 
@@ -101,6 +107,5 @@ class ContenedorProductos {
         }
 
     }
-};
-
-module.exports = ContenedorProductos;
+}
+module.exports = {Contenedor}
