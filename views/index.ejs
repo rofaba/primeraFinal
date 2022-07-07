@@ -44,21 +44,20 @@
             <!-- formulario de ingreso -->
             <h2>Para ingresar un PRODUCTO NUEVO al stock utilice este formulario</h2>
 
-            <form action="/productos" method="post">
+            <form id="formulariofornew">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" data="nombre-post" id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
-                    <input type="text" name="title" class="form-control" placeholder="Nombre del producto"
+                    <span class="input-group-text"  id="basic-addon1"> NOMBRE DEL PRODUCTO </span>
+                    <input type="text" id="nombrepostnuevo" name="title-post"  class="form-control" placeholder="Nombre del producto"
                         aria-label="Nombre producto" aria-describedby="basic-addon1" required>
                 </div>
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text" data="url-post" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
-                    <input type="url" name="thumbnail" class="form-control" placeholder="URL Imagen producto"
+                <div class="input-group">
+                    <span class="input-group-text" data="img-post" id="basic-addon2"> URL IMAGEN DEL PRODUCTO </span>
+                    <input type="url"  id="urlpostnuevo" name="img-post" class="form-control" placeholder="URL Imagen producto"
                         aria-label="Recipient's username" aria-describedby="basic-addon2" required>
 
                 </div>
 
-                <!-- <label for="basic-url" class="form-label">Your vanity URL</label> -->
                 <div class="input-group">
                     <span class="input-group-text"> CODIGO / PRECIO / STOCK DISPONIBLE </span>
                     <input type="number" data="codigo-post" name="codigo" aria-label=" Last name" class="form-control" placeholder="Código"
@@ -80,12 +79,13 @@
                 <label class="form-check-label" for="flexSwitchCheckChecked"> <b>Esta acción es solo para
                         administradores. Si eres administrador activa el checkbox.</b>
                 </label>
+             
 
-                    <input class="btn btn-primary" type="submit" onclick="postItem()" value="Guardar">
-                    
                 </div>
-                <hr>
-            </form>
+                
+            </form>  
+            <input class="btn btn-primary" type="submit" onclick="postItem()" value="Guardar">
+            
             <!-- EDITAR PRODUCTO EXISTENTE -->
             <h2>Para editar un PRODUCTO EXISTENTE utilice el siguiente fomulario</h2>
 
@@ -153,30 +153,26 @@
 
         //GET PRODUCTO POR ID
 
-         
-
-        //POST
+         //POST
         function postItem() {
         let casillapost = document.getElementById('admin-post');
         let boolean = casillapost.checked;
-        console.log(boolean)
         if (boolean) {
-            
-            let titulo = document.querySelector('[data="nombre-post"]').value;
-            let url = document.querySelector('[data="url-post"]').value;
-            let codice = document.querySelector('[data="codigo-post"]').value;    
-            let precio = document.querySelector('[data="precio-post"]').value;
-            let stock = document.querySelector('[data="stock-post"]').value;
-            let descripcion = document.querySelector('[data="descripcion-post"]').value;
+            const title = document.querySelector('#nombrepostnuevo').value;
+            const url = document.querySelector('#urlpostnuevo').value;
+            const codice = document.querySelector('[data="codigo-post"]').value;    
+            const precio = document.querySelector('[data="precio-post"]').value;
+            const stock = document.querySelector('[data="stock-post"]').value;
+            const descripcion = document.querySelector('[data="descripcion-post"]').value;
         
-        const postmethod = {
-            method: 'POST',
-            headers: {
+            const postmethod = {
+                method:'POST',
+                headers: {
                     'Content-type': 'application/json; charset=UTF-8',
            },          
-             body: JSON.stringify(
+                body: JSON.stringify(
                         {
-                        "title": titulo, 
+                        "title": title, 
                         "thumbnail": url,
                         "codigo": codice,
                         "price": precio,
@@ -187,13 +183,13 @@
                     )
             }                
             
-            fetch(`http://localhost:8080/productos`, postmethod)
+            fetch('http://localhost:8080/productos', postmethod)
             .then(res => response.json())
             .catch(err => console.log(err))        
 
         } else {  
                 alert('necesitas ser administrador para poder acceder a esta ruta')
-                
+               
             }
             }    
 
@@ -201,7 +197,7 @@
         function deleteItem() {
         let casilladel = document.getElementById('admin');
         let boolean = casilladel.checked;
-        console.log(boolean)
+        
         if (boolean) {
             let num = document.querySelector('#id').value;
             console.log(num)

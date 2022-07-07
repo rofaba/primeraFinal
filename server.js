@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extend: true }))
 app.use(express.static(__dirname + '/public'));
 
 //ROUTES
-app.get('/', (req, res) => {res.render('index')});
+
 app.get('/', (req, res) => {res.render('index')});
 app.use('/productos', require('./src/routesproductos')) 
 app.use('/carrito', require('./src/routescarros')) 

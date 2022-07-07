@@ -36,11 +36,12 @@ getAllProducts: (req, res) => {
 },
 
 postProduct: (req, res) => {
-    const productos = archivo.getAll();
-    const productosarray = productos;
+    const productosactuales = JSON.parse(fs.readFileSync('productos.txt', 'utf-8'));
+    const productosarray = productosactuales;
 
     try {
         const nuevoProducto = req.body;
+        nuevoProducto.timestamp = Date.now()
         if (productosarray.length == 0) {
             nuevoProducto.id = 1
         } else {
@@ -48,9 +49,8 @@ postProduct: (req, res) => {
             productosarray.forEach(element => identificadores.push(element.id));
             nuevoProducto.id = (Math.max(...identificadores) + 1);
         }
-        nuevoProducto.timestamp = Date.now()
+       
         productosarray.push(nuevoProducto)
-        
         const nuevoarchivo = JSON.stringify(productosarray, null, 2)
         fs.writeFileSync('productos.txt', nuevoarchivo);
         console.log('producto guardado');

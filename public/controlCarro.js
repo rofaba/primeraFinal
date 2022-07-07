@@ -54,9 +54,11 @@ getIdProducts: (req, res) => {
     const carros = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
     let carrosarray = carros;
     const idcarro = req.params.id;
-    if ( carrosarray.find(e => e.id == idcarro) == undefined) {
-        console.log('ERROR. No existe carro con ese id')}
-        res.redirect('/404')
+    if ( carrosarray.find(e => e.id == idcarro) == undefined) 
+    {   res.send(" No existe un carro con ese id ")
+        console.log('ERROR. No existe carro con ese id')
+    }
+        
         const carroSolicitado = carrosarray.indexOf(carrosarray.find(e => e.id == idcarro));
     const carroparafront = carrosarray[carroSolicitado].productos
             res.render('carrito', { datosCarro: carroparafront })
