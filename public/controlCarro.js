@@ -69,8 +69,9 @@ getIdProducts: (req, res) => {
                 datosCarrito: carrofront})
                  
  },
- postByIds: (req, res, next) => {
-    try {  
+ postByIds: (req, res) => {
+    //busca producto
+     
      const todosProductos = JSON.parse(fs.readFileSync('productos.txt', 'utf-8'));
      const productosarray = todosProductos;
      const idproducto = Number(req.params.id_product); 
@@ -82,20 +83,21 @@ getIdProducts: (req, res) => {
      const idcarropost = Number(req.params.id);
      const carroModificar = carrosarray.findIndex(element => element.id == idcarropost);
      const carroactual = carrosarray[carroModificar]
-     
-     if (carroModificar == -1 || indiceAgregar == -1) {
-        res.json({error: "Error", descripcion: "No existe carro o producto con ese Id"})
-        console.log("Error, imposible agregar. No existe el Id del Carro o Producto ingresados")
+
+    try {  
+        if (carroModificar == -1 || indiceAgregar == -1) {
+            res.json({error: "Error", descripcion: "No existe carro o producto con ese Id"})
+            console.log("Error, imposible agregar. No existe el Id del Carro o Producto ingresados")
      } else {
 
      const productosencarro = carroactual.productos;
      productosencarro.push(productoAgregar);
      carroactual.productos = productosencarro;
-     carrosarray[idcarropost] = carroactual
+     carrosarray.splice([idcarropost], 1, carroactual)
+     
      fs.writeFileSync('carrito.txt', JSON.stringify(carrosarray, null, 2));
-     console.log(carrosarray[idcarropost])
      console.log('producto agregado')
-     //leer nuevo carro
+     
      res.redirect(200)
      }
      }
