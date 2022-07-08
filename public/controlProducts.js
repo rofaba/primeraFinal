@@ -16,13 +16,18 @@ getPbyId : (req, res) => {
              const elementoBuscado = arrayproductos.find((element) => element.id == num);
              if (elementoBuscado == undefined) {
                  console.log(`No se encuentra ningún elemento con el id: ${num}`)
-                 res.send('No existe producto con ese Id')
+                 res.json({error: "Error", descripcion: "No existe producto con ese Id"})
              } else ;
              let objdatos= []
              objdatos.push(elementoBuscado)
              console.log(objdatos)
+
+             const carros = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+             const muestracarro = carros;
+             const numerocarros = muestracarro.length
              res.render('productos', {
-                 datos: objdatos
+                 datos: objdatos,
+                 
              });
          } catch (error) {
              console.log('Ha ocurrido un error en el proceso', error)
@@ -31,8 +36,12 @@ getPbyId : (req, res) => {
 
 getAllProducts: (req, res) => {
     const data = archivo.getAll();
+    const carros = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
+    const carrosarray = carros;
+    const numerocarros = carros.length
     res.render('productos',{
-        datos: data
+        datos: data,
+        
     });    
 },
 

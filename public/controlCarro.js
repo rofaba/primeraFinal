@@ -37,10 +37,10 @@ delCarro: (req, res) => {
     const carrosarray = carrosexistentes;
     const idparaborrar = Number(req.params.id);
           try {
-            let elementoParaBorrar = carrosarray.findIndex((element) => element.id == idparaborrar);
+            const elementoParaBorrar = carrosarray.findIndex((element) => element.id == idparaborrar);
             
                 if (elementoParaBorrar != -1) {
-            carrosarray.splice((carrosarray.findIndex((carro) => carro.id == idparaborrar)), 1);
+            carrosarray.splice((carrosarray.findIndex((elem) => elem.id == idparaborrar)), 1);
             fs.writeFileSync('carrito.txt', JSON.stringify(carrosarray, null, 2));
             console.log(`El carrito ${idparaborrar} ha sido correctamente eliminado`)
 
@@ -57,7 +57,7 @@ getIdProducts: (req, res) => {
     let carrosarray = carros;
     const idcarro = req.params.id;
     if ( carrosarray.find(e => e.id == idcarro) == undefined) 
-    {   res.send(" No existe un carro con ese id ")
+    {   res.json({error: "Error", descripcion: "No existe carro con ese Id"})
         console.log('ERROR. No existe carro con ese id')
     }
         
@@ -84,6 +84,7 @@ getIdProducts: (req, res) => {
      const carroactual = carrosarray[carroModificar]
      
      if (carroModificar == -1 || indiceAgregar == -1) {
+        res.json({error: "Error", descripcion: "No existe carro o producto con ese Id"})
         console.log("Error, imposible agregar. No existe el Id del Carro o Producto ingresados")
      } else {
 

@@ -6,13 +6,13 @@
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                background-color: #b6b68f;
-                color: rgb(6, 6, 6);
+          
             }
 
             .panelSuperior {
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-evenly;
+                padding: 10px
 
             }
 
@@ -23,43 +23,24 @@
         </style>
 
         <!-- CHECK administrador -->
-
+        <h2  style="text-align: center"    class="titulo"> TIENDA - BACKEND </h2>
+            <br>
         <div class="panelSuperior">
-            <h2 class="titulo"> PRODUCTOS </h2>
-            <a class="btn btn-dark" href="http://localhost:8080"> Ir a inicio </a>
-            <a class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a> 
-            <a class="btn btn-dark" onclick="idGet()"> Ver producto con id: </a>
-            <input type="number" id="id-get" aria-label=" Last name" class="form-control" placeholder="id producto">
             
-            <a class="btn btn-primary" onclick="crearCarroNuevo()"> Crear Carro Nuevo </a>
-            <a class="btn btn-primary" onclick="deleteCarro()" > Eliminar Carro por ID </a>
-            <input type="number" id="idcarroborrar" aria-label=" Last name" class="form-control" placeholder="id producto">
-            <a class="btn btn-primary" onclick="irCarroNumero()"> Ir al Carro de Compras Nº: </a>
-            <input type="number" id="irCarroId" aria-label=" Last name" class="form-control" placeholder="id carro">
+            <a style="width:800px; padding: 10px; margin: 10px;" class="btn btn-dark" href="http://localhost:8080"> Ir a página de INICIO </a> 
+            <a style="width:800px; padding: 10px; margin: 10px;" class="btn btn-dark" href="http://localhost:8080/productos"> Ver todos los productos </a>  
+            <a style="width:800px; padding: 10px; margin: 10px;" class="btn btn-dark" onclick="idGet()"> Ver producto con id: </a> 
+            <input type="number" id="id-get" aria-label=" Last name" class="form-control" placeholder="Ingresar Id producto a ver"> 
+           
+        
             
         </div>
         <br>
-        <!-- NAVBAR -->
-
-        <!-- <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-            </li>
-        </ul> -->
-
-
+        <br>
+        
         <!-- Productos -->
 
-
+        <h3 style="background-color:lightblue"  > Listado de Productos Disponibles</h3>
         <div class="container-fluid">
 
 
@@ -94,7 +75,7 @@
                                         <p class="card-text">
                                             TS: <%= datos[i].timestamp%>
                                         </p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +87,16 @@
                     <br>
 
         </div>
-        <script>
+        
+        <h2 style="background-color:lightblue" > Manejo de Carritos de Compras </h2>
+        <div class="panelSuperior">
+        <a style="width:800px; margin: 10px";  class="btn btn-primary" onclick="crearCarroNuevo()"> Crear Carro Nuevo </a> 
+        <a style="width:800px; margin: 10px" class="btn btn-primary" onclick="deleteCarro()" > Eliminar Carro por ID </a> 
+        <input type="number" id="idcarroborrar" aria-label=" Last name" class="form-control" placeholder="Ingresar Id de Carro a Eliminar"> 
+        <a style="width:800px; margin: 10px" class="btn btn-primary" onclick="irCarroNumero()"> Ir al Carro de Compras Id: </a> 
+        <input type="number" id="irCarroId" aria-label=" Last name" class="form-control" placeholder="Ingresar Id Carro a ver"> 
+        </div>
+<script>
 
         function irCarroNumero() {
                 const numcarro = document.querySelector('#irCarroId').value;
@@ -147,7 +137,9 @@
                
             } 
 
-
+            function actualizarCarro() {
+                location.reload();
+            }
         </script>
 
 
