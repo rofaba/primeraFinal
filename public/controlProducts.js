@@ -16,6 +16,7 @@ getPbyId : (req, res) => {
              const elementoBuscado = arrayproductos.find((element) => element.id == num);
              if (elementoBuscado == undefined) {
                  console.log(`No se encuentra ningún elemento con el id: ${num}`)
+                 res.send('No existe producto con ese Id')
              } else ;
              let objdatos= []
              objdatos.push(elementoBuscado)

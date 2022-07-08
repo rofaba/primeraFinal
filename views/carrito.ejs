@@ -2,8 +2,10 @@
 
 <body>
 <div class="container-fluid">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Carro de Compras </h5>
-        <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Id Carro - Timestamp Carro
+        <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Carro de Compras </h2>
+        <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Id Carro: <%= datosCarrito.id %> </h3>
+        <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Timestamp Carro: <%= datosCarrito.timestamp %></h3>
+             
         </h3>
         <a class="btn btn-secondary" onclick="agregarProducto()" > Agregar producto a carro por Id de ambos</a>
         <input type="number" id="id-carro" aria-label=" Last name"  placeholder="id carro">
@@ -25,7 +27,7 @@
         <div class="tablaCarro">
 <table class="table">
 
-<% if(datosCarro.length < 1) { %>
+<% if(datosProductos.length < 1) { %>
 <h2>No hay productos para mostrar</h2>
 
 <% } else { %>
@@ -41,32 +43,32 @@
 <th scope= col> Stock </th>
 
 </tr>
-<% for (var i=0; i < datosCarro.length; i++) { %>
+<% for (var i=0; i < datosProductos.length; i++) { %>
 <tr scope= row >
     <td>
-        <%= datosCarro[i].id %>
+        <%= datosProductos[i].id %>
     </td>
     <td>
-        <%= datosCarro[i].timestamp %>
+        <%= datosProductos[i].timestamp %>
     </td>
     <td>
-        <%= datosCarro[i].title %>
+        <%= datosProductos[i].title %>
    </td>
    <td>
-    <%= datosCarro[i].descripcion %>
+    <%= datosProductos[i].descripcion %>
 </td>
 <td>
-    <%= datosCarro[i].codigo %>
+    <%= datosProductos[i].codigo %>
 </td>
     <td>
-        <img src="<%= datosCarro[i].thumbnail %>" alt="<%= datosCarro[i].title %>" width="50px">
+        <img src="<%= datosProductos[i].thumbnail %>" alt="<%= datosProductos[i].title %>" width="50px">
     </td>
     
     <td>
-        <%= datosCarro[i].price %>
+        <%= datosProductos[i].price %>
     </td>
     <td>
-        <%= datosCarro[i].stock %>
+        <%= datosProductos[i].stock %>
     </td>
        
     <br>

@@ -5,9 +5,10 @@ var carrito = new Contenedor('carrito.txt')
 module.exports = {
 
 postCarro: (req, res) => {
-    const carritos = carrito.getAll();
+    const carritos = JSON.parse(fs.readFileSync('carrito.txt', 'utf-8'));
     const carrosArray = carritos;
     const nuevoCarro = req.body
+    nuevoCarro.timestamp = Date.now()
     
     try {
         if (carrosArray.length == 0) {
@@ -17,6 +18,7 @@ postCarro: (req, res) => {
             carrosArray.forEach(element => identificadores.push(element.id));
             nuevoCarro.id = (Math.max(...identificadores) + 1);
         }
+
         carrosArray.push(nuevoCarro);
 
         const nuevoArrayCarros = JSON.stringify(carrosArray, null, 2)
@@ -60,9 +62,11 @@ getIdProducts: (req, res) => {
     }
         
         const carroSolicitado = carrosarray.indexOf(carrosarray.find(e => e.id == idcarro));
-    const carroparafront = carrosarray[carroSolicitado].productos
-            res.render('carrito', { datosCarro: carroparafront })
-
+        const productoscarroparafront = carrosarray[carroSolicitado].productos
+        const carrofront = carrosarray[carroSolicitado];
+            res.render('carrito', { 
+                datosProductos: productoscarroparafront, 
+                datosCarrito: carrofront})
                  
  },
  postByIds: (req, res, next) => {
@@ -78,7 +82,11 @@ getIdProducts: (req, res) => {
      const idcarropost = Number(req.params.id);
      const carroModificar = carrosarray.findIndex(element => element.id == idcarropost);
      const carroactual = carrosarray[carroModificar]
-         
+     
+     if (carroModificar == -1 || indiceAgregar == -1) {
+        console.log("Error, imposible agregar. No existe el Id del Carro o Producto ingresados")
+     } else {
+
      const productosencarro = carroactual.productos;
      productosencarro.push(productoAgregar);
      carroactual.productos = productosencarro;
@@ -88,7 +96,7 @@ getIdProducts: (req, res) => {
      console.log('producto agregado')
      //leer nuevo carro
      res.redirect(200)
-     
+     }
      }
      catch (error) {
      console.log('Ha ocurrido un error en el proceso', error)
